@@ -1,3 +1,6 @@
+import random
+
+
 def tip_calculator(tip_percentage):
     sub_total = float(input("Enter subtotal: "))
     tip = sub_total * tip_percentage/100
@@ -39,6 +42,8 @@ def tip_based_on_performance():
         else:
             print("You didn't enter one of the options you dingus.")
 
+# calculator of all factors of a given number
+
 def factors():
     number = int(input("Enter your number: "))
     x = 1
@@ -51,16 +56,53 @@ def factors():
             x += 1
     print(factor)
 
-def factor_with_argument(number):
-    x = 1
-    factor = []
-    while x <= number:
-        if number%x == 0:
-            factor.append(x)
-            x += 1
-        else: 
-            x += 1
-    return factor
+# greatest common factor of two numbers calculator
 
 def gcf(x, y):
+    a = 1
+    x_factors = []
+    while a <= x:
+        if x%a == 0:
+            x_factors.append(a)
+            a += 1
+        else:
+            a += 1
+    b = 1
+    y_factors = []
+    while b <= x:
+        if y%b == 0:
+            y_factors.append(b)
+            b += 1
+        else:
+            b += 1
+    gcf = 0
+    for factor in x_factors:
+        if factor in y_factors:
+            gcf = factor
+    print(f"The gcf of {x} and {y} is: {gcf}")
+
+# number guessing game
+
+def number_guess(x, y):
+    history = []
+    the_number = random.randint(x, y)
+    global_guess = 0
+    while global_guess == 0:
+        guess = int(input(f"Guess a number from {x} to {y}: "))
+        if guess == the_number:
+            print(f"{guess} is correct!")
+            print("Your guesses were: ")
+            for i in history:
+                print(i)
+            global_guess = guess 
+        elif guess < x or guess > y:
+            print("Your guess exceeds the parameters, please guess again.")
+        elif guess > the_number:
+            print(f"{guess} is larger than the number, guess again.")
+            history.append(guess)
+        elif guess < the_number:
+            print(f"{guess} is smaller than the number, guess again.")
+            history.append(guess)
+
+number_guess(1, 100)
     
