@@ -90,8 +90,9 @@ def number_guess(x, y):
     history = []
     the_number = random.randint(x, y)
     global_guess = 0
-    try:
-        while global_guess == 0:
+    
+    while global_guess == 0:
+        try: 
             guess = int(input(f"Guess a number from {x} to {y}: "))
             if guess == the_number:
                 print(f"{guess} is correct!")
@@ -107,10 +108,10 @@ def number_guess(x, y):
             elif guess < the_number:
                 print(f"{guess} is smaller than the number, guess again.")
                 history.append(guess)
-    except ValueError:
-        print("You didn't enter an integer you dingus.")
-        number_guess(x, y)
+        except ValueError:
+            print("You didn't enter an integer you dingus")
+    
             
        
-number_guess(1, 100)
+number_guess(1,10)
     
