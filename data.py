@@ -86,32 +86,3 @@ def gcf(x, y):
 
 # number guessing game
 
-def number_guess(x, y):
-    history = []
-    the_number = random.randint(x, y)
-    global_guess = 0
-    
-    while global_guess == 0:
-        try: 
-            guess = int(input(f"Guess a number from {x} to {y}: "))
-            if guess == the_number:
-                print(f"{guess} is correct!")
-                print("Your guesses were: ")
-                for i in history:
-                    print(i)
-                global_guess = guess
-            elif guess < x or guess > y:
-                print("Your guess exceeds the parameters, please guess again.")
-            elif guess > the_number:
-                print(f"{guess} is larger than the number, guess again.")
-                history.append(guess)
-            elif guess < the_number:
-                print(f"{guess} is smaller than the number, guess again.")
-                history.append(guess)
-        except ValueError:
-            print("You didn't enter an integer you dingus")
-    
-            
-       
-number_guess(1,10)
-    
