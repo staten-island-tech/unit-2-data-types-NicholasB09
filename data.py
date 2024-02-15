@@ -1,6 +1,3 @@
-import random
-
-
 def tip_calculator():
     bill = float(input("Enter bill: "))
     tip_percentage = int(input("Enter tip percentage: "))
@@ -84,5 +81,4 @@ def gcf(x, y):
             gcf = factor
     print(f"The gcf of {x} and {y} is: {gcf}")
 
-# number guessing game
-
+gcf(69, 24)
